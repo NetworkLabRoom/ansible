@@ -2,8 +2,7 @@
 - name: Set Ip Loobpack
 	hosts: all
 	gather_facts: no
-
-  tasks:
+tasks:
     - name: Set loopback IPv4 address
 		ios_l3_interface:
 			name: loopback {{items.No}}
@@ -16,4 +15,4 @@
 		ios_command:
 			- show ip int br
 		register: show_interface
-	- debug: var = show_interface.stdout_lines.
+	- debug: var = show_interface.stdout_lines
