@@ -1,7 +1,7 @@
 ---
--name: Set Ip Loobpack
-	hosts: all
-	gather_facts: no
+- name: Set Ip Loobpack
+  hosts: all
+  gather_facts: no
 tasks:
 	- name: Set loopback IPv4 address
 		ios_l3_interface:
