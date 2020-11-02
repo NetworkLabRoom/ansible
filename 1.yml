@@ -1,16 +1,16 @@
 ---
-- name: Set Ip Loobpack
+-name: Set Ip Loobpack
 	hosts: all
 	gather_facts: no
 tasks:
-    - name: Set loopback IPv4 address
+	- name: Set loopback IPv4 address
 		ios_l3_interface:
 			name: loopback {{items.No}}
-			ipv4: "{{items.IP}}"
+			ipv4: {{items.IP}}/24
 		with_items:
-			- {No: 1, IP: 10.10.10.1 255.255.255.255}
-			- {No: 2, IP: 10.10.20.1 255.255.255.255}
-			- {No: 3, IP: 10.10.30.1 255.255.255.255}
+			- {No: 1, IP: 10.10.10.1}
+			- {No: 2, IP: 10.10.20.1}
+			- {No: 3, IP: 10.10.30.1}
 	- name: Show interface
 		ios_command:
 			- show ip int br
